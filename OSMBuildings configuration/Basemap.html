@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>OSM Buildings</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    #map {
+      width: 100%;
+      height: 100%;
+    }
+
+    .control {
+      position: absolute;
+      left: 0;
+      z-index: 1000;
+    }
+
+    .control.tilt {
+      top: 0;
+    }
+
+    .control.rotation {
+      top: 45px;
+    }
+
+    .control.zoom {
+      top: 90px;
+    }
+
+    .control.zoom button{
+      font-weight: normal;
+    }
+
+    .control button {
+      width: 30px;
+      height: 30px;
+      margin: 15px 0 0 15px;
+      border: 1px solid #999999;
+      background: #ffffff;
+      opacity: 0.6;
+      border-radius: 5px;
+      box-shadow: 0 0 5px #666666;
+      font-weight: bold;
+      text-align: center;
+    }
+
+    .control button:hover {
+      opacity: 1;
+      cursor: pointer;
+    }
+  </style>
+  <link rel="stylesheet" href="OSMBuildings/OSMBuildings.css">
+  <script src="OSMBuildings/OSMBuildings.js"></script>
+</head>
+
+<body>
+<div id="map"></div>
+
+<div class="control tilt">
+  <button class="dec">&#8601;</button>
+  <button class="inc">&#8599;</button>
+</div>
+
+<div class="control rotation">
+  <button class="inc">&#8630;</button>
+  <button class="dec">&#8631;</button>
+</div>
+
+<div class="control zoom">
+  <button class="dec">-</button>
+  <button class="inc">+</button>
+</div>
+</body>
+
+<head>
+  <link rel="stylesheet" href="css/GLMap.css">
+  <style type="text/css">
+    * {margin: 0; padding: 0;}
+    html, body {height: 100%;}
+    #map {width: 100%; height: 100%;}
+  </style>
+</head>
+
+<body>
+  <div id="map"></div>
+
+  <script src="js/GLMap.js"></script>
+  <script src="js/OSMBuildings-GLMap.js"></script>
+
+<script>
+  var map = new GLMap('map', {
+    position: {latitude: 52.51, longitude: 13.35},
+      zoom: 17,
+      rotation: 0,
+      tilt: 40,
+      attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="http://cartodb.com/attributions">CartoDB</a>'
+    });
+
+  var osmb = new OSMBuildings({}).addTo(map);
+
+  osmb.addMapTiles('http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png');
+
+  osmb.addGeoJSON('/JSON/to/osmb-testdata.geo.json');
+
+</script>
+</body>
+</head>
