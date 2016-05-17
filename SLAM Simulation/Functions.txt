@@ -1,0 +1,25 @@
+Factors:
+location - radius of 100/150 km
+date - three days maximum on either side
+personality - take a survey
+
+Case 1:
+when two people already have their tickets booked
+we just match them up with similar iteneraries 
+
+Case 2:
+when people are looking to go to the same place and match them up with others going to 
+the same place or a place within a 150km radius.
+
+Main function:
+When someone searches a place we offer them a choice to travel with a companion or alone.
+If(companion)
+exchange the contact information
+If(alone)
+move forward with the booking
+
+Features offered:
+1. Hostel/motel
+2. Flight deal
+3. Travel buddy
+4. Wishlist .
